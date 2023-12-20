@@ -34,7 +34,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ModeToggle />
+          <div className="flex justify-end">
+            <ModeToggle />
+          </div>
           <TRPCReactProvider cookies={cookies().toString()}>
             {children}
           </TRPCReactProvider>
