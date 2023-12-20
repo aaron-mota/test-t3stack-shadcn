@@ -7,11 +7,11 @@ import { TRPCReactProvider } from "@/trpc/react";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/mode-toggle";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-// const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({
+//   subsets: ["latin"],
+//   variable: "--font-sans",
+// });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create T3 App",
@@ -26,8 +26,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <body className={inter.className}> */}
-      <body className={`font-sans ${inter.variable}`}>
+      <body className={inter.className}>
+        {/* <body className={`font-sans ${inter.variable}`}> */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
