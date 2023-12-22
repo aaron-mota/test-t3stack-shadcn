@@ -38,7 +38,7 @@ type TypographyVariant = NonNullable<
   VariantProps<typeof typographyVariants>["variant"]
 >;
 
-type TypographyHTMLElementTag =
+type HTMLTypographyElementTag =
   | "h1"
   | "h2"
   | "h3"
@@ -53,7 +53,7 @@ type TypographyHTMLElementTag =
   | "li";
 const VariantToHTMLElement: Record<
   TypographyVariant,
-  TypographyHTMLElementTag
+  HTMLTypographyElementTag
 > = {
   h1: "h1",
   h2: "h2",
@@ -71,21 +71,21 @@ const VariantToHTMLElement: Record<
   ul: "ul",
   li: "li",
 } as const;
-type TypographyHTMLElement =
+type HTMLTypographyElement =
   JSX.IntrinsicElements[(typeof VariantToHTMLElement)[keyof typeof VariantToHTMLElement]];
 
 export interface TypographyProps<V extends TypographyVariant>
-  extends React.HTMLAttributes<TypographyHTMLElement>,
+  extends React.HTMLAttributes<HTMLTypographyElement>,
     VariantProps<typeof typographyVariants> {
   asChild?: boolean;
   variant?: V;
 }
 
 export const Typography = React.forwardRef<
-  TypographyHTMLElement,
+  HTMLTypographyElement,
   TypographyProps<TypographyVariant>
 >(({ className, variant, gutterBottom, asChild = false, ...props }, ref) => {
-  const Comp = asChild ? Slot : variant ? VariantToHTMLElement[variant] : "p";
+  const Comp = asChild ? Slot : VariantToHTMLElement[variant ?? "p"];
   return (
     <Comp
       className={cn(typographyVariants({ variant, gutterBottom, className }))}
