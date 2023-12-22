@@ -89,7 +89,7 @@ export const Typography = React.forwardRef<
   return (
     <Comp
       className={cn(typographyVariants({ variant, gutterBottom, className }))}
-      // @ts-expect-error (...)
+      // @ts-expect-error (difficult to type this)
       ref={ref}
       {...props}
     />
