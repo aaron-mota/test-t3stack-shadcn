@@ -25,6 +25,7 @@ const typographyVariants = cva("font-sans", {
       li: "m-0 p-0",
     },
     gutterBottom: {
+      // inspiration from MUI (https://mui.com/material-ui/api/typography/)
       true: "mb-4",
     },
   },
@@ -74,16 +75,15 @@ const VariantToHTMLElement: Record<
 type HTMLTypographyElement =
   JSX.IntrinsicElements[(typeof VariantToHTMLElement)[keyof typeof VariantToHTMLElement]];
 
-export interface TypographyProps<V extends TypographyVariant>
+export interface TypographyProps
   extends React.HTMLAttributes<HTMLTypographyElement>,
     VariantProps<typeof typographyVariants> {
   asChild?: boolean;
-  variant?: V;
 }
 
 export const Typography = React.forwardRef<
   HTMLTypographyElement,
-  TypographyProps<TypographyVariant>
+  TypographyProps
 >(({ className, variant, gutterBottom, asChild = false, ...props }, ref) => {
   const Comp = asChild ? Slot : VariantToHTMLElement[variant ?? "p"];
   return (
