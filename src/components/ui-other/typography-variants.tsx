@@ -1,9 +1,11 @@
 import * as React from "react";
 import Typography from "./typography"; // Assume this is the path to your Typography component
+import { Button } from "../ui/button";
 
 const TypographyVariants = () => {
   return (
     <div className="">
+      <Button>Hello</Button>
       <Typography variant="h1" gutterBottom>
         Heading 1
       </Typography>
@@ -13,6 +15,7 @@ const TypographyVariants = () => {
       <Typography variant="h5">Heading 5</Typography>
       <Typography variant="h6">Heading 6</Typography>
       <Typography variant="p">This is a paragraph.</Typography>
+      <Typography>This is a paragraph.</Typography>
       <Typography variant="lead">This is a lead paragraph.</Typography>
       <Typography variant="large">This is large text.</Typography>
       <Typography variant="small">This is small text.</Typography>
