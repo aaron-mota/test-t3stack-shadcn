@@ -7,7 +7,8 @@ import { cn } from "@/lib/utils";
 const typographyVariants = cva("font-sans", {
   variants: {
     variant: {
-      // TODO: look into mt-x for h1-h6 (etc.) (https://ui.shadcn.com/docs/components/typography)
+      // TODO: look into mt-x for h1-h6, etc. (used in shadcn example)
+      // Tailwind CSS classes below are from shadcn typography section (https://ui.shadcn.com/docs/components/typography)
       h1: "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
       h2: "scroll-m-20 text-3xl font-semibold tracking-tight",
       h3: "scroll-m-20 text-2xl font-semibold tracking-tight",
@@ -23,11 +24,13 @@ const typographyVariants = cva("font-sans", {
       code: "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold",
       ul: "my-6 ml-6 list-disc [&>li]:mt-2",
       li: "m-0 p-0",
+      // add more typography variants...
     },
     gutterBottom: {
       // inspiration from MUI (https://mui.com/material-ui/api/typography/)
       true: "mb-4",
     },
+    // add more variants...
   },
   defaultVariants: {
     variant: "p",
@@ -39,6 +42,7 @@ type TypographyVariant = NonNullable<
   VariantProps<typeof typographyVariants>["variant"]
 >;
 
+// only allow typography-related HTML elements
 type HTMLTypographyElementTag =
   | "h1"
   | "h2"
@@ -71,7 +75,7 @@ const VariantToHTMLElement: Record<
   code: "code",
   ul: "ul",
   li: "li",
-} as const;
+};
 type HTMLTypographyElement =
   JSX.IntrinsicElements[(typeof VariantToHTMLElement)[keyof typeof VariantToHTMLElement]];
 
