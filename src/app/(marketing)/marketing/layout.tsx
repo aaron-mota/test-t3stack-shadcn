@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import { cookies } from "next/headers";
 import { TRPCReactProvider } from "@/trpc/react";
-import { ThemeProvider, ModeToggle } from "@/components";
+import { ThemeProvider } from "@/components";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,9 +32,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex justify-end">
-            <ModeToggle />
-          </div>
           <TRPCReactProvider cookies={cookies().toString()}>
             {children}
           </TRPCReactProvider>
