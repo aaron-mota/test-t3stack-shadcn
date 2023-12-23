@@ -7,7 +7,7 @@ import { shadcnMapped } from "./_type_systems";
 
 const typeSystem = shadcnMapped;
 
-export const typographyVariants = cva("font-sans", {
+const typographyVariants = cva("font-sans", {
   variants: {
     variant: {
       // TODO: look into mt-x for h1-h6, etc. (used in shadcn example)
@@ -79,6 +79,13 @@ const VariantToHTMLElement: Record<
   kbd: "kbd",
   ul: "ul",
   li: "li",
+
+  // MUI
+  // subtitle1: "p",
+  // subtitle2: "p",
+  // button: "p",
+  // caption: "p",
+  // overline: "p",
 };
 type HTMLTypographyElement =
   JSX.IntrinsicElements[(typeof VariantToHTMLElement)[keyof typeof VariantToHTMLElement]];
@@ -86,11 +93,6 @@ type HTMLTypographyElement =
 export interface TypographyProps
   extends React.HTMLAttributes<HTMLTypographyElement>,
     VariantProps<typeof typographyVariants> {
-  asChild?: boolean;
-}
-
-export interface VariantPropsTypography
-  extends Omit<VariantProps<typeof typographyVariants>, "variant"> {
   asChild?: boolean;
 }
 

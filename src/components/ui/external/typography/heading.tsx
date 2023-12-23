@@ -1,5 +1,8 @@
 import React from "react";
-import Typography, { type TypographyVariant } from "./_typography";
+import Typography, {
+  type TypographyVariant,
+  type VariantPropsTypography,
+} from "./_typography";
 import type { FilterUnionType } from "@/lib/types";
 
 // Specify the variants you want to allow (linting error will be thrown when using exported component with a variant (1) not specified here or (2) not within TypographyVariant)
@@ -9,11 +12,13 @@ type AllowedVariants = FilterUnionType<
 >;
 type HTMLTypographyElement = HTMLHeadingElement;
 
-export interface TextProps extends React.HTMLAttributes<HTMLTypographyElement> {
+interface HeadingProps
+  extends React.HTMLAttributes<HTMLTypographyElement>,
+    VariantPropsTypography {
   variant: AllowedVariants;
-  asChild?: boolean;
 }
-const Heading = React.forwardRef<HTMLTypographyElement, TextProps>(
+
+const Heading = React.forwardRef<HTMLTypographyElement, HeadingProps>(
   ({ variant, ...props }, ref) => {
     return (
       <Typography

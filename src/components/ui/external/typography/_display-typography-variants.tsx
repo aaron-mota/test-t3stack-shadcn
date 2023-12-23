@@ -15,7 +15,9 @@ const DisplayTypographyVariants = () => {
       <div className="flex flex-col gap-6">
         {/* Heading */}
         <div>
-          <Heading variant="h1">Heading 1</Heading>
+          <Heading variant="h1" gutterBottom>
+            Heading 1
+          </Heading>
           <Heading variant="h2">Heading 2</Heading>
           <Heading variant="h3">Heading 3</Heading>
           <Heading variant="h4">Heading 4</Heading>
