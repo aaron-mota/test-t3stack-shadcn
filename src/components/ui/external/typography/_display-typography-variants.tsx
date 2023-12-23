@@ -22,7 +22,15 @@ const DisplayTypographyVariants = () => {
           <Heading variant="h5">Heading 5</Heading>
           <Heading variant="h6">Heading 6</Heading>
         </div>
-        {/* Text */}
+        {/* Text - MUI */}
+        {/* <div>
+          <Typography variant="subtitle1">This is subtitle 1.</Typography>
+          <Typography variant="subtitle2">This is subtitle 2.</Typography>
+          <Typography variant="button">This is button.</Typography>
+          <Typography variant="caption">This is caption.</Typography>
+          <Typography variant="overline">This is overline.</Typography>
+        </div> */}
+        {/* Text - shadcn */}
         <div>
           <Text variant="lead">This is a lead paragraph.</Text>
           <Text variant="large">This is large text.</Text>
