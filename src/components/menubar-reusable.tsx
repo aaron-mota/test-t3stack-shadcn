@@ -15,7 +15,7 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar";
 
-interface MenuItem {
+export interface MenuItem {
   trigger: string;
   subItems: SubMenuItem[];
 }
@@ -32,177 +32,179 @@ interface SubMenuItem {
   inset?: boolean;
 }
 
-const menuItems: MenuItem[] = [
-  {
-    trigger: "File",
-    subItems: [
-      {
-        label: "New Tab",
-        shortcut: "⌘T",
-      },
-      {
-        label: "New Window",
-        shortcut: "⌘N",
-      },
-      {
-        label: "New Incognito Window",
-      },
-      {
-        isSeparator: true,
-      },
-      {
-        label: "Share",
-        subMenu: [
-          {
-            label: "Email link",
-          },
-          {
-            label: "Messages",
-          },
-          {
-            label: "Notes",
-          },
-        ],
-      },
-      {
-        isSeparator: true,
-      },
-      {
-        label: "Print...",
-        shortcut: "⌘P",
-      },
-    ],
-  },
-  {
-    trigger: "Edit",
-    subItems: [
-      {
-        label: "Undo",
-        shortcut: "⌘Z",
-      },
-      {
-        label: "Redo",
-        shortcut: "⇧⌘Z",
-      },
-      {
-        isSeparator: true,
-      },
-      {
-        label: "Find",
-        subMenu: [
-          {
-            label: "Search the web",
-          },
-          {
-            isSeparator: true,
-          },
-          {
-            label: "Find...",
-          },
-          {
-            label: "Find Next",
-          },
-          {
-            label: "Find Previous",
-          },
-        ],
-      },
-      {
-        isSeparator: true,
-      },
-      {
-        label: "Cut",
-      },
-      {
-        label: "Copy",
-      },
-      {
-        label: "Paste",
-      },
-    ],
-  },
-  {
-    trigger: "View",
-    subItems: [
-      {
-        label: "Always Show Bookmarks Bar",
-        type: "checkbox",
-        checked: true,
-      },
-      {
-        label: "Always Show Full URLs",
-        type: "checkbox",
-        checked: true,
-      },
-      {
-        isSeparator: true,
-      },
-      {
-        label: "Reload",
-        shortcut: "⌘R",
-        inset: true,
-      },
-      {
-        label: "Force Reload",
-        shortcut: "⇧⌘R",
-        disabled: true,
-        inset: true,
-      },
-      {
-        isSeparator: true,
-      },
-      {
-        label: "Toggle Fullscreen",
-        inset: true,
-      },
-      {
-        isSeparator: true,
-      },
-      {
-        label: "Hide Sidebar",
-        inset: true,
-      },
-    ],
-  },
-  {
-    trigger: "Profiles",
-    subItems: [
-      {
-        type: "radio",
-        label: "Andy",
-        value: "andy",
-      },
-      {
-        type: "radio",
-        label: "Benoit",
-        value: "benoit",
-      },
-      {
-        type: "radio",
-        label: "Luis",
-        value: "Luis",
-      },
-      {
-        isSeparator: true,
-      },
-      {
-        label: "Edit...",
-        inset: true,
-      },
-      {
-        isSeparator: true,
-      },
-      {
-        label: "Add Profile...",
-        inset: true,
-      },
-    ],
-  },
-];
+// const menuItems: MenuItem[] = [
+//   {
+//     trigger: "File",
+//     subItems: [
+//       {
+//         label: "New Tab",
+//         shortcut: "⌘T",
+//       },
+//       {
+//         label: "New Window",
+//         shortcut: "⌘N",
+//       },
+//       {
+//         label: "New Incognito Window",
+//       },
+//       {
+//         isSeparator: true,
+//       },
+//       {
+//         label: "Share",
+//         subMenu: [
+//           {
+//             label: "Email link",
+//           },
+//           {
+//             label: "Messages",
+//           },
+//           {
+//             label: "Notes",
+//           },
+//         ],
+//       },
+//       {
+//         isSeparator: true,
+//       },
+//       {
+//         label: "Print...",
+//         shortcut: "⌘P",
+//       },
+//     ],
+//   },
+//   {
+//     trigger: "Edit",
+//     subItems: [
+//       {
+//         label: "Undo",
+//         shortcut: "⌘Z",
+//       },
+//       {
+//         label: "Redo",
+//         shortcut: "⇧⌘Z",
+//       },
+//       {
+//         isSeparator: true,
+//       },
+//       {
+//         label: "Find",
+//         subMenu: [
+//           {
+//             label: "Search the web",
+//           },
+//           {
+//             isSeparator: true,
+//           },
+//           {
+//             label: "Find...",
+//           },
+//           {
+//             label: "Find Next",
+//           },
+//           {
+//             label: "Find Previous",
+//           },
+//         ],
+//       },
+//       {
+//         isSeparator: true,
+//       },
+//       {
+//         label: "Cut",
+//       },
+//       {
+//         label: "Copy",
+//       },
+//       {
+//         label: "Paste",
+//       },
+//     ],
+//   },
+//   {
+//     trigger: "View",
+//     subItems: [
+//       {
+//         label: "Always Show Bookmarks Bar",
+//         type: "checkbox",
+//         checked: true,
+//       },
+//       {
+//         label: "Always Show Full URLs",
+//         type: "checkbox",
+//         checked: true,
+//       },
+//       {
+//         isSeparator: true,
+//       },
+//       {
+//         label: "Reload",
+//         shortcut: "⌘R",
+//         inset: true,
+//       },
+//       {
+//         label: "Force Reload",
+//         shortcut: "⇧⌘R",
+//         disabled: true,
+//         inset: true,
+//       },
+//       {
+//         isSeparator: true,
+//       },
+//       {
+//         label: "Toggle Fullscreen",
+//         inset: true,
+//       },
+//       {
+//         isSeparator: true,
+//       },
+//       {
+//         label: "Hide Sidebar",
+//         inset: true,
+//       },
+//     ],
+//   },
+//   {
+//     trigger: "Profiles",
+//     subItems: [
+//       {
+//         type: "radio",
+//         label: "Andy",
+//         value: "andy",
+//       },
+//       {
+//         type: "radio",
+//         label: "Benoit",
+//         value: "benoit",
+//       },
+//       {
+//         type: "radio",
+//         label: "Luis",
+//         value: "Luis",
+//       },
+//       {
+//         isSeparator: true,
+//       },
+//       {
+//         label: "Edit...",
+//         inset: true,
+//       },
+//       {
+//         isSeparator: true,
+//       },
+//       {
+//         label: "Add Profile...",
+//         inset: true,
+//       },
+//     ],
+//   },
+// ];
 
-interface Props {}
+interface Props {
+  menuItems: MenuItem[];
+}
 
-export function CompanyLocationUserMenu({}: Props) {
+export function MenubarReusable({ menuItems }: Props) {
   return (
     <>
       <Menubar>

@@ -1,21 +1,8 @@
 import React from "react";
 import { TopNav } from "./top-nav";
-import {
-  Button,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuTrigger,
-  ModeToggle,
-} from ".";
+import { ModeToggle } from ".";
 import Image from "next/image";
-import { Cog, LogOut, User } from "lucide-react";
-import { AvatarUser } from "./avatar-user";
-import { CompanyLocationUserMenu } from "./company-location-user-menu";
+import { CompanyLocationUserNav } from "./company-location-user-nav";
 
 interface Props {}
 
@@ -25,11 +12,9 @@ export function Header({}: Props) {
       <div className="flex justify-between">
         <Logo />
         <div className="flex gap-2">
-          {/* <CompanyLocationUserNav /> */}
-          <CompanyLocationUserMenu />
+          <CompanyLocationUserNav />
           <div className="flex gap-1">
             <ModeToggle />
-            <AvatarUserWithDropdown />
           </div>
         </div>
       </div>
@@ -49,38 +34,4 @@ const Logo = () => (
     priority
   />
   // </div>
-);
-
-const AvatarUserWithDropdown = () => (
-  <DropdownMenu>
-    <DropdownMenuTrigger asChild>
-      <Button variant="outline" size="icon">
-        <AvatarUser />
-      </Button>
-    </DropdownMenuTrigger>
-    <DropdownMenuContent className="w-56">
-      <DropdownMenuLabel>My Account</DropdownMenuLabel>
-      <DropdownMenuSeparator />
-      <DropdownMenuGroup>
-        <DropdownMenuItem>
-          <User className="mr-2 h-4 w-4" />
-          <span>Profile</span>
-          <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Cog className="mr-2 h-4 w-4" />
-          <span>Settings</span>
-          <DropdownMenuShortcut>⇧⌘,</DropdownMenuShortcut>
-        </DropdownMenuItem>
-      </DropdownMenuGroup>
-      <DropdownMenuSeparator />
-      <DropdownMenuGroup>
-        <DropdownMenuItem>
-          <LogOut className="mr-2 h-4 w-4" />
-          <span>Logout</span>
-          <DropdownMenuShortcut>⇧⌘L</DropdownMenuShortcut>
-        </DropdownMenuItem>
-      </DropdownMenuGroup>
-    </DropdownMenuContent>
-  </DropdownMenu>
 );

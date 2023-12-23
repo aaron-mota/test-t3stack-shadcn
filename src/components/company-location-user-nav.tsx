@@ -12,20 +12,10 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { company, locations, user } from "@/lib/_mock_data";
 
 export function CompanyLocationUserNav() {
-  const company = {
-    name: "Virtue Eye Care",
-    hrefLogo: "https://picsum.photos/id/200/200",
-  };
-  const location = {
-    name: "Walmart 52nd",
-    hrefLogo: "https://picsum.photos/id/120/200",
-  };
-  const user = {
-    name: "Dr. John Doe",
-    hrefProfile: "https://gravatar.com/avatar/hash",
-  };
+  const [location, setLocation] = React.useState(locations[0]);
 
   return (
     <NavigationMenu>
@@ -43,22 +33,22 @@ export function CompanyLocationUserNav() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>
             <TriggerText
-              label={location.name}
+              label={location?.name ?? "Loading..."}
               avatar
-              avatarSrc={location.hrefLogo}
+              avatarSrc={location?.hrefLogo}
             />
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <ListItem href="/docs" title="Introduction">
-                Patients
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
+              {locations.map((location) => (
+                <ListItem
+                  key={location.id}
+                  title={location.name}
+                  onClick={() => setLocation(location)}
+                >
+                  {location.address}
+                </ListItem>
+              ))}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
