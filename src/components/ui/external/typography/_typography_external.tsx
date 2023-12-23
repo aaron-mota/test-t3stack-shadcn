@@ -1,3 +1,5 @@
+// https://github.com/shadcn-ui/ui/pull/363#issuecomment-1868306713
+
 import * as React from "react";
 import { type VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
