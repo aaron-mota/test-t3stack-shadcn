@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import {
@@ -11,61 +10,40 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
-  },
-  {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  },
-  {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-];
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 export function CompanyLocationUserNav() {
+  const company = {
+    name: "Virtue Eye Care",
+    hrefLogo: "https://picsum.photos/id/200/200",
+  };
+  const location = {
+    name: "Walmart 52nd",
+    hrefLogo: "https://picsum.photos/id/120/200",
+  };
+
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Company
-            </NavigationMenuLink>
-          </Link>
+          <div className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium opacity-60 transition-colors hover:text-accent-foreground focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+            <TriggerText
+              label={company.name}
+              avatar
+              avatarSrc={company.hrefLogo}
+            />
+          </div>
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Location</NavigationMenuTrigger>
+          <NavigationMenuTrigger>
+            <TriggerText
+              label={location.name}
+              avatar
+              avatarSrc={location.hrefLogo}
+            />
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <ListItem href="/docs" title="Introduction">
@@ -77,23 +55,6 @@ export function CompanyLocationUserNav() {
               <ListItem href="/docs/primitives/typography" title="Typography">
                 Styles for headings, paragraphs, lists...etc
               </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>User</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -127,3 +88,28 @@ const ListItem = React.forwardRef<
   );
 });
 ListItem.displayName = "ListItem";
+
+interface TriggerTextProps {
+  label?: string;
+  avatar?: boolean;
+  avatarSrc?: string;
+  avatarFallback?: string;
+}
+const TriggerText = ({
+  label,
+  avatar,
+  avatarSrc,
+  avatarFallback,
+}: TriggerTextProps) => (
+  <>
+    {avatar && (
+      <Avatar className="mr-1 h-6 w-6">
+        <AvatarImage src={avatarSrc} />
+        <AvatarFallback>
+          {avatarFallback ?? label?.slice(0, 1) ?? ""}
+        </AvatarFallback>
+      </Avatar>
+    )}
+    {label}
+  </>
+);

@@ -1,25 +1,34 @@
 import React from "react";
 import { TopNav } from "./top-nav";
-import { Button, ModeToggle } from ".";
+import {
+  Button,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuTrigger,
+  ModeToggle,
+} from ".";
 import Image from "next/image";
-import { LogOut } from "lucide-react";
+import { Cog, LogOut, User } from "lucide-react";
 import { CompanyLocationUserNav } from "./company-location-user-nav";
+import { AvatarUser } from "./avatar-user";
 
 interface Props {}
 
 export function Header({}: Props) {
   return (
-    <div>
+    <div className="p-1 px-2">
       <div className="flex justify-between">
         <Logo />
         <div className="flex gap-2">
           <CompanyLocationUserNav />
           <div className="flex gap-1">
             <ModeToggle />
-            <Button variant="outline" size="icon">
-              <LogOut />
-            </Button>
-            C
+            <AvatarUserWithDropdown />
           </div>
         </div>
       </div>
@@ -39,4 +48,38 @@ const Logo = () => (
     priority
   />
   // </div>
+);
+
+const AvatarUserWithDropdown = () => (
+  <DropdownMenu>
+    <DropdownMenuTrigger asChild>
+      <Button variant="outline" size="icon">
+        <AvatarUser />
+      </Button>
+    </DropdownMenuTrigger>
+    <DropdownMenuContent className="w-56">
+      <DropdownMenuLabel>My Account</DropdownMenuLabel>
+      <DropdownMenuSeparator />
+      <DropdownMenuGroup>
+        <DropdownMenuItem>
+          <User className="mr-2 h-4 w-4" />
+          <span>Profile</span>
+          <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Cog className="mr-2 h-4 w-4" />
+          <span>Settings</span>
+          <DropdownMenuShortcut>⇧⌘,</DropdownMenuShortcut>
+        </DropdownMenuItem>
+      </DropdownMenuGroup>
+      <DropdownMenuSeparator />
+      <DropdownMenuGroup>
+        <DropdownMenuItem>
+          <LogOut className="mr-2 h-4 w-4" />
+          <span>Logout</span>
+          <DropdownMenuShortcut>⇧⌘L</DropdownMenuShortcut>
+        </DropdownMenuItem>
+      </DropdownMenuGroup>
+    </DropdownMenuContent>
+  </DropdownMenu>
 );
