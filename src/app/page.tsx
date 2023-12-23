@@ -2,8 +2,8 @@ import Image from "next/image";
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
 import Link from "next/link";
+import { Button } from "@/components";
 import { CreatePost } from "@/app/_components/create-post";
-import { Button } from "@/components/ui/button";
 
 export default async function Home() {
   const hello = await api.post.hello.query({ text: "from tRPC" });

@@ -1,14 +1,14 @@
 import * as React from "react";
 import Typography from "./_typography";
-import Heading from "./heading";
-import Text from "./text";
+import { Heading } from "./heading";
+import { Text } from "./text";
 import Em from "./em";
 import Strong from "./strong";
 import Small from "./small";
 import Blockquote from "./blockquote";
 import Code from "./code";
 
-const DisplayTypographyVariants = () => {
+export const DisplayTypographyVariants = () => {
   return (
     <div className="flex flex-row justify-center gap-6">
       {/* Semantic */}
@@ -58,5 +58,3 @@ const DisplayTypographyVariants = () => {
     </div>
   );
 };
-
-export default DisplayTypographyVariants;

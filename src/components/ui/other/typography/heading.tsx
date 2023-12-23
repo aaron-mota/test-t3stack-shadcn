@@ -19,10 +19,8 @@ interface HeadingProps
   variant: AllowedVariants;
 }
 
-const Heading = React.forwardRef<HTMLTypographyElement, HeadingProps>(
+export const Heading = React.forwardRef<HTMLTypographyElement, HeadingProps>(
   ({ variant, ...props }, ref) => {
     return <Typography ref={ref} variant={variant} {...props} />;
   },
 );
-
-export default Heading;

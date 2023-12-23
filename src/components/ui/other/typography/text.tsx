@@ -19,10 +19,8 @@ interface TextProps
   variant?: AllowedVariants;
 }
 
-const Text = React.forwardRef<HTMLTypographyElement, TextProps>(
+export const Text = React.forwardRef<HTMLTypographyElement, TextProps>(
   ({ variant, ...props }, ref) => {
     return <Typography ref={ref} variant={variant} {...props} />;
   },
 );
-
-export default Text;

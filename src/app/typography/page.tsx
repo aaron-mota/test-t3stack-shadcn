@@ -1,4 +1,4 @@
-import DisplayTypographyVariants from "@/components/ui/external/typography/_display-typography-variants";
+import { DisplayTypographyVariants } from "@/components";
 
 export default async function Page() {
   return (
