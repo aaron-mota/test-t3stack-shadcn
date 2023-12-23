@@ -1,16 +1,29 @@
 import React from "react";
 import { TopNav } from "./top-nav";
-import { ModeToggle } from ".";
+import { Button, ModeToggle } from ".";
 import Image from "next/image";
+import { LogOut } from "lucide-react";
+import { CompanyLocationUserNav } from "./company-location-user-nav";
 
 interface Props {}
 
 export function Header({}: Props) {
   return (
-    <div className="flex flex-row justify-between">
-      <Logo />
+    <div>
+      <div className="flex justify-between">
+        <Logo />
+        <div className="flex gap-2">
+          <CompanyLocationUserNav />
+          <div className="flex gap-1">
+            <ModeToggle />
+            <Button variant="outline" size="icon">
+              <LogOut />
+            </Button>
+            C
+          </div>
+        </div>
+      </div>
       <TopNav />
-      <ModeToggle />
     </div>
   );
 }
