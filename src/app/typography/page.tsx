@@ -1,9 +1,9 @@
-import TypographyVariants from "@/components/ui-other/typography-variants";
+import DisplayTypographyVariants from "@/components/ui/external/typography/_display-typography-variants";
 
 export default async function Page() {
   return (
     <div>
-      <TypographyVariants />
+      <DisplayTypographyVariants />
     </div>
   );
 }
