@@ -11,7 +11,7 @@ import Kbd from "./kbd";
 
 const DisplayTypographyVariants = () => {
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row justify-center gap-6">
       <div className="flex flex-col gap-6">
         {/* Heading */}
         <div>
@@ -41,16 +41,10 @@ const DisplayTypographyVariants = () => {
             </Text>
           </div>
         </div>
-        {/* Blockquote */}
-        <div>
+        {/* Other*/}
+        <div className="flex flex-col items-start">
           <Blockquote>This is a blockquote.</Blockquote>
-        </div>
-        {/* Code */}
-        <div>
-          <Code>This is code.</Code>
-        </div>
-        {/* Kbd */}
-        <div>
+          <Code>This is inline code.</Code>
           <Kbd>This is kbd.</Kbd>
         </div>
       </div>
