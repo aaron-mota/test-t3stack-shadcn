@@ -14,8 +14,8 @@ import {
 } from ".";
 import Image from "next/image";
 import { Cog, LogOut, User } from "lucide-react";
-import { CompanyLocationUserNav } from "./company-location-user-nav";
 import { AvatarUser } from "./avatar-user";
+import { CompanyLocationUserMenu } from "./company-location-user-menu";
 
 interface Props {}
 
@@ -25,7 +25,8 @@ export function Header({}: Props) {
       <div className="flex justify-between">
         <Logo />
         <div className="flex gap-2">
-          <CompanyLocationUserNav />
+          {/* <CompanyLocationUserNav /> */}
+          <CompanyLocationUserMenu />
           <div className="flex gap-1">
             <ModeToggle />
             <AvatarUserWithDropdown />

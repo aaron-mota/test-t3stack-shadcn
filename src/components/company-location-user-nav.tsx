@@ -22,6 +22,10 @@ export function CompanyLocationUserNav() {
     name: "Walmart 52nd",
     hrefLogo: "https://picsum.photos/id/120/200",
   };
+  const user = {
+    name: "Dr. John Doe",
+    hrefProfile: "https://gravatar.com/avatar/hash",
+  };
 
   return (
     <NavigationMenu>
@@ -54,6 +58,32 @@ export function CompanyLocationUserNav() {
               </ListItem>
               <ListItem href="/docs/primitives/typography" title="Typography">
                 Styles for headings, paragraphs, lists...etc
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>
+            <TriggerText
+              label={user.name}
+              avatar
+              avatarSrc={user.hrefProfile}
+            />
+          </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+              <ListItem href="#" title="Account Settings">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam
+              </ListItem>
+              <ListItem href="#" title="Menu Item 2">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam
+              </ListItem>
+              <ListItem href="#" title="Menu Item 3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam
               </ListItem>
             </ul>
           </NavigationMenuContent>
