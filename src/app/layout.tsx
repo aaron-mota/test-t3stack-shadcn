@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* <body className={inter.className}> */}
-      <body className={`font-sans ${inter.variable}`}>
+      <body className={`font-sans ${inter.variable} border border-r-4`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
