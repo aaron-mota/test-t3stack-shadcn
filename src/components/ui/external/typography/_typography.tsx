@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { noTypeSystem } from "./_type_systems";
 
 // const typographyDesignPrinciples = mui;
-const typographyDesignSystem = noTypeSystem;
+const typeSystem = noTypeSystem;
 
 const typographyVariants = cva("font-sans", {
   variants: {
@@ -15,27 +15,21 @@ const typographyVariants = cva("font-sans", {
       // Tailwind CSS classes below are from shadcn typography section (https://ui.shadcn.com/docs/components/typography)
       h1: cn(
         "scroll-m-20 text-4xl font-extrabold tracking-tight",
-        typographyDesignSystem.h1,
+        typeSystem.h1,
       ),
       h2: cn(
         "scroll-m-20 text-3xl font-semibold tracking-tight",
-        typographyDesignSystem.h2,
+        typeSystem.h2,
       ),
       h3: cn(
         "scroll-m-20 text-2xl font-semibold tracking-tight",
-        typographyDesignSystem.h3,
+        typeSystem.h3,
       ),
-      h4: cn(
-        "scroll-m-20 text-xl font-semibold tracking-tight",
-        typographyDesignSystem.h4,
-      ),
-      h5: cn(
-        "scroll-m-20 text-lg font-semibold tracking-tight",
-        typographyDesignSystem.h5,
-      ),
+      h4: cn("scroll-m-20 text-xl font-semibold tracking-tight", typeSystem.h4),
+      h5: cn("scroll-m-20 text-lg font-semibold tracking-tight", typeSystem.h5),
       h6: cn(
         "scroll-m-20 text-base font-semibold tracking-tight",
-        typographyDesignSystem.h6,
+        typeSystem.h6,
       ),
       p: cn("leading-7"),
       lead: cn("text-xl text-muted-foreground"),
