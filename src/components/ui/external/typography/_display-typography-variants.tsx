@@ -6,13 +6,15 @@ import Em from "./em";
 import Strong from "./strong";
 import Small from "./small";
 import Blockquote from "./blockquote";
+import Code from "./code";
+import Kbd from "./kbd";
 
 const DisplayTypographyVariants = () => {
   return (
     <div className="flex flex-row">
       <div className="flex flex-col gap-6">
+        {/* Heading */}
         <div>
-          {/* Heading */}
           <Heading variant="h1">Heading 1</Heading>
           <Heading variant="h2">Heading 2</Heading>
           <Heading variant="h3">Heading 3</Heading>
@@ -20,8 +22,8 @@ const DisplayTypographyVariants = () => {
           <Heading variant="h5">Heading 5</Heading>
           <Heading variant="h6">Heading 6</Heading>
         </div>
+        {/* Text */}
         <div>
-          {/* Text */}
           <Text variant="lead">This is a lead paragraph.</Text>
           <Text variant="large">This is large text.</Text>
           <Text variant="muted">This is muted text.</Text>
@@ -39,9 +41,17 @@ const DisplayTypographyVariants = () => {
             </Text>
           </div>
         </div>
+        {/* Blockquote */}
         <div>
-          {/* Blockquote */}
-          <Blockquote variant="blockquote">This is a blockquote.</Blockquote>
+          <Blockquote>This is a blockquote.</Blockquote>
+        </div>
+        {/* Code */}
+        <div>
+          <Code>This is code.</Code>
+        </div>
+        {/* Kbd */}
+        <div>
+          <Kbd>This is kbd.</Kbd>
         </div>
       </div>
 

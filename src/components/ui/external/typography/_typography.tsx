@@ -24,6 +24,7 @@ const typographyVariants = cva("font-sans", {
       // blockquote: "mt-6 border-l-2 pl-6 italic",
       blockquote: "border-l-2 pl-6 italic",
       code: "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold",
+      kbd: "font-mono text-sm font-semibold",
       ul: "my-6 ml-6 list-disc [&>li]:mt-2",
       li: "m-0 p-0",
       // add more typography variants...
@@ -56,6 +57,7 @@ type HTMLTypographyElementTag =
   // | "small"
   | "blockquote"
   | "code"
+  | "kbd"
   | "ul"
   | "li";
 const VariantToHTMLElement: Record<
@@ -75,6 +77,7 @@ const VariantToHTMLElement: Record<
   muted: "p",
   blockquote: "blockquote",
   code: "code",
+  kbd: "kbd",
   ul: "ul",
   li: "li",
 };
