@@ -15,7 +15,6 @@ const emVariants = cva("italic", {
 
 type EmElement = React.ElementRef<"em">;
 export interface EmProps
-  // extends React.HTMLAttributes<HTMLTypographyElement>,
   extends React.ComponentPropsWithoutRef<"em">,
     VariantProps<typeof emVariants> {
   asChild?: boolean;

@@ -3,40 +3,57 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
-import { shadcnMapped } from "./_type_systems";
+import { shadcnMapped, type TypeSystemMapped } from "./_type_systems";
 
-const typeSystem = shadcnMapped;
+const typeSystemBase = shadcnMapped;
+const custom: TypeSystemMapped = {
+  h1: "",
+  h2: "border-b-0 pb-0", // reset: border-b pb-2 first:mt-0
+  h3: "",
+  h4: "",
+  h5: "", // no base in shadcn
+  h6: "", // no base in shadcn
+  p: "[&:not(:first-child)]:mt-0", // reset: [&:not(:first-child)]:mt-6
+  lead: "",
+  large: "",
+  muted: "test-base", // reset: test-sm
+  blockquote: "border-l-4 border-primary-300",
+  code: "",
+  kbd: "",
+  ul: "",
+  li: "",
+};
 
 export const typographyVariants = cva("font-sans", {
   variants: {
     variant: {
       // TODO: look into mt-x for h1-h6, etc. (used in shadcn example)
       // Tailwind CSS classes below are from shadcn typography section (https://ui.shadcn.com/docs/components/typography)
-      h1: typeSystem.h1,
-      h2: typeSystem.h2,
-      h3: typeSystem.h3,
-      h4: typeSystem.h4,
-      h5: typeSystem.h5,
-      h6: typeSystem.h6,
-      p: typeSystem.p,
-      lead: typeSystem.lead,
-      large: typeSystem.large,
-      muted: typeSystem.muted,
-      blockquote: typeSystem.blockquote,
-      code: typeSystem.code,
-      kbd: typeSystem.kbd,
-      ul: typeSystem.ul,
-      li: typeSystem.li,
+      h1: cn(typeSystemBase.h1, custom.h1),
+      h2: cn(typeSystemBase.h2, custom.h2),
+      h3: cn(typeSystemBase.h3, custom.h3),
+      h4: cn(typeSystemBase.h4, custom.h4),
+      h5: cn(typeSystemBase.h5, custom.h5),
+      h6: cn(typeSystemBase.h6, custom.h6),
+      p: cn(typeSystemBase.p, custom.p),
+      lead: cn(typeSystemBase.lead, custom.lead),
+      large: cn(typeSystemBase.large, custom.large),
+      muted: cn(typeSystemBase.muted, custom.muted),
+      blockquote: cn(typeSystemBase.blockquote, custom.blockquote),
+      code: cn(typeSystemBase.code, custom.code),
+      kbd: cn(typeSystemBase.kbd, custom.kbd),
+      ul: cn(typeSystemBase.ul, custom.ul),
+      li: cn(typeSystemBase.li, custom.li),
     },
     gutterBottom: {
       // inspiration from MUI (https://mui.com/material-ui/api/typography/)
       true: "mb-4",
     },
-    // add more variants...
   },
   defaultVariants: {
     variant: "p",
     gutterBottom: false,
+    // size: "default",
   },
 });
 

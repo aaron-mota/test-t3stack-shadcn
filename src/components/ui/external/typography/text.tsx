@@ -1,31 +1,27 @@
 import React from "react";
-import Typography from "./_typography";
-import type { TypographyVariant, VariantPropsTypography } from "./_typography";
+import {
+  Typography,
+  type VariantPropsTypographyWithoutVariant,
+  type TypographyVariantType,
+} from "./_typography_external";
 import type { FilterUnionType } from "@/lib/types";
 
 // Specify the variants you want to allow (linting error will be thrown when using exported component with a variant (1) not specified here or (2) not within TypographyVariant)
 type AllowedVariants = FilterUnionType<
-  TypographyVariant,
-  "p" | "lead" | "large" | "muted"
+  TypographyVariantType,
+  "p" | "lead" | "largeText" | "mutedText"
 >;
 type HTMLTypographyElement = HTMLParagraphElement;
 
 interface TextProps
   extends React.HTMLAttributes<HTMLTypographyElement>,
-    VariantPropsTypography {
+    VariantPropsTypographyWithoutVariant {
   variant?: AllowedVariants;
 }
 
 const Text = React.forwardRef<HTMLTypographyElement, TextProps>(
   ({ variant, ...props }, ref) => {
-    return (
-      <Typography
-        // @ts-expect-error (...)
-        ref={ref}
-        variant={variant}
-        {...props}
-      />
-    );
+    return <Typography ref={ref} variant={variant} {...props} />;
   },
 );
 
