@@ -9,15 +9,10 @@ interface Props {}
 
 export function Header({}: Props) {
   return (
-    <div
-      id="site-header"
-      // className="absolute left-0 top-0 w-full bg-background p-1 px-2" // absolute
-      className="p-1 px-2"
-    >
+    <div id="site-header" className="p-1 px-2">
       <div className="flex justify-between">
         <div className="flex items-center gap-8">
           <div>
-            {/* <div className="w-[240px]"> */}
             <Logo />
           </div>
           <TopNav />
