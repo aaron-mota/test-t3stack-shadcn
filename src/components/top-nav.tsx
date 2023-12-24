@@ -20,14 +20,14 @@ export function TopNav() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Link href="/main" legacyBehavior passHref>
+          <Link href="/patients" legacyBehavior passHref>
             <NavigationMenuLink
               className={cn(navigationMenuTriggerStyle(), {
-                "opacity-50": pathname !== "/main",
-                "opacity-100": pathname === "/main",
+                "opacity-50": pathname !== "/patients",
+                "opacity-100": pathname === "/patients",
               })}
             >
-              Main
+              Patients
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

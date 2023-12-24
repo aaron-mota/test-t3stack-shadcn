@@ -1,0 +1,1 @@
+export { useStorePatientTabs } from "./useStorePatientTabs";
