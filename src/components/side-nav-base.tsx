@@ -9,7 +9,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import type { NavLink } from "@/lib/siteConfig";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 
 interface Props {
   isCollapsed: boolean;
@@ -17,6 +17,8 @@ interface Props {
 }
 
 export function SideNavBase({ links, isCollapsed }: Props) {
+  const pathname = usePathname();
+  console.log("pathname", pathname);
   const { patientId } = useParams<{ patientId?: string }>();
 
   if (!patientId) {
@@ -64,8 +66,12 @@ export function SideNavBase({ links, isCollapsed }: Props) {
                 key={index}
                 href={link.href ? `/patients/${patientId}/${link.href}` : "#"}
                 className={cn(
-                  buttonVariants({ variant: link.variant, size: "sm" }),
-                  link.variant === "default" && "dark:bg-muted dark:text-white",
+                  buttonVariants({ variant: "ghost", size: "sm" }),
+                  link.href
+                    ? pathname.includes(link.href)
+                      ? "dark:bg-muted dark:text-white"
+                      : ""
+                    : "",
                   "justify-start",
                 )}
               >
