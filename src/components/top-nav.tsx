@@ -46,6 +46,9 @@ export function TopNav() {
         <NavLink href="/mail" label="Mail" />
         <NavLink href="/tasks" label="Tasks" />
         <NavLink href="/cards" label="Cards" />
+        <NavLink href="/forms" label="Forms" />
+        <NavLink href="/music" label="Music" />
+        <NavLink href="#" label="Demos" />
       </NavigationMenuList>
     </NavigationMenu>
   );
