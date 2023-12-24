@@ -12,6 +12,7 @@ export function Header({}: Props) {
     <div className="p-1 px-2">
       <div className="flex justify-between">
         <Logo />
+        <TopNav />
         <div className="flex gap-2">
           <CompanyLocationUserNav />
           <div className="flex gap-1">
@@ -21,7 +22,6 @@ export function Header({}: Props) {
           </div>
         </div>
       </div>
-      <TopNav />
     </div>
   );
 }
