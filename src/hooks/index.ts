@@ -1,1 +1,1 @@
-export { useStorePatientTabs } from "./useStorePatientTabs";
+export { useStorePatientTabs } from "./use-store-patient-tabs";
