@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { SideNavBase } from "./side-nav-base";
 import { siteConfig } from "@/lib/siteConfig";
@@ -10,7 +12,11 @@ export function SideNavMain({}: Props) {
 
   return (
     <>
-      <SideNavBase isCollapsed={isCollapsed} links={links} />
+      <div className={`flex flex-col justify-between`}>
+        <div className="m-2 h-10 rounded-md bg-muted/80" />
+        <SideNavBase isCollapsed={isCollapsed} links={links} />
+        <div className="m-2 h-10 rounded-md bg-muted/80" />
+      </div>
     </>
   );
 }

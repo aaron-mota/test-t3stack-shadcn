@@ -9,7 +9,7 @@ interface Props {}
 
 export function Header({}: Props) {
   return (
-    <div className="p-1 px-2">
+    <div id="site-header" className="p-1 px-2">
       <div className="flex justify-between">
         <Logo />
         <TopNav />
