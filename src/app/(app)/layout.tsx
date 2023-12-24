@@ -35,6 +35,7 @@ export default function RootLayout({
           <TRPCReactProvider cookies={cookies().toString()}>
             <div className="h-screen overflow-hidden">
               <Header />
+              {/* source of minor error if adjusting base font size (44px hardcoded = would need to be dynamic in some way) */}
               <div className="h-[calc(100vh-44px)]">{children}</div>
             </div>
           </TRPCReactProvider>
