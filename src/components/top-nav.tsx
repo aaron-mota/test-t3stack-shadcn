@@ -13,50 +13,39 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-export function TopNav() {
-  const pathname = usePathname();
+interface NavLinkProps {
+  href: string;
+  label: string;
+}
 
+const NavLink: React.FC<NavLinkProps> = ({ href, label }) => {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+
+  return (
+    <NavigationMenuItem>
+      <Link href={href} legacyBehavior passHref>
+        <NavigationMenuLink
+          className={cn(navigationMenuTriggerStyle(), {
+            "opacity-50": !isActive,
+            "opacity-100": isActive,
+          })}
+        >
+          {label}
+        </NavigationMenuLink>
+      </Link>
+    </NavigationMenuItem>
+  );
+};
+
+export function TopNav() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        <NavigationMenuItem>
-          <Link href="/patients" legacyBehavior passHref>
-            <NavigationMenuLink
-              className={cn(navigationMenuTriggerStyle(), {
-                "opacity-50": pathname !== "/patients",
-                "opacity-100": pathname === "/patients",
-              })}
-            >
-              Patients
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <Link href="/mail" legacyBehavior passHref>
-            <NavigationMenuLink
-              className={cn(navigationMenuTriggerStyle(), {
-                "opacity-50": pathname !== "/mail",
-                "opacity-100": pathname === "/mail",
-              })}
-            >
-              Mail
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <Link href="/tasks" legacyBehavior passHref>
-            <NavigationMenuLink
-              className={cn(navigationMenuTriggerStyle(), {
-                "opacity-50": pathname !== "/tasks",
-                "opacity-100": pathname === "/tasks",
-              })}
-            >
-              Tasks
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
+        <NavLink href="/patients" label="Patients" />
+        <NavLink href="/mail" label="Mail" />
+        <NavLink href="/tasks" label="Tasks" />
+        <NavLink href="/cards" label="Cards" />
       </NavigationMenuList>
     </NavigationMenu>
   );
