@@ -3,6 +3,7 @@ import { TopNav } from "./top-nav";
 import { ModeToggle } from ".";
 import Image from "next/image";
 import { CompanyLocationUserNav } from "./company-location-user-nav";
+import { FontSizeSlider } from "./font-size-slider";
 
 interface Props {}
 
@@ -14,6 +15,8 @@ export function Header({}: Props) {
         <div className="flex gap-2">
           <CompanyLocationUserNav />
           <div className="flex gap-1">
+            {/* <FontSizeToggle /> */}
+            <FontSizeSlider />
             <ModeToggle />
           </div>
         </div>
