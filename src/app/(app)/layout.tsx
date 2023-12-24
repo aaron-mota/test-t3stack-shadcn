@@ -33,8 +33,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <TRPCReactProvider cookies={cookies().toString()}>
-            <Header />
-            {children}
+            <div className="max-h-screen">
+              <Header />
+              {/* <div className="mt-[40px]">{children}</div> */}
+              <div>{children}</div>
+            </div>
           </TRPCReactProvider>
         </ThemeProvider>
       </body>
