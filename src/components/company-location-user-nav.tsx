@@ -12,7 +12,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { company, locations, user } from "@/lib/_mock_data";
+import { company, locations, user } from "@/lib/mock_data/database";
 
 export function CompanyLocationUserNav() {
   const [location, setLocation] = React.useState(locations[0]);
