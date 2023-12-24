@@ -20,8 +20,8 @@ export function CompanyLocationUserNav() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        <NavigationMenuItem>
-          <div className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium opacity-60 transition-colors hover:text-accent-foreground focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+        <NavigationMenuItem className="opacity-50">
+          <div className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-accent-foreground focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
             <TriggerText
               label={company.name}
               avatar
@@ -30,7 +30,7 @@ export function CompanyLocationUserNav() {
           </div>
         </NavigationMenuItem>
 
-        <NavigationMenuItem>
+        <NavigationMenuItem className="opacity-50">
           <NavigationMenuTrigger>
             <TriggerText
               label={location?.name ?? "Loading..."}
@@ -53,7 +53,7 @@ export function CompanyLocationUserNav() {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        <NavigationMenuItem>
+        <NavigationMenuItem className="opacity-50">
           <NavigationMenuTrigger>
             <TriggerText
               label={user.name}

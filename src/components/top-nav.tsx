@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import {
@@ -13,12 +14,19 @@ import {
 } from "@/components/ui/navigation-menu";
 
 export function TopNav() {
+  const pathname = usePathname();
+
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link href="/main" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink
+              className={cn(navigationMenuTriggerStyle(), {
+                "opacity-50": pathname !== "/main",
+                "opacity-100": pathname === "/main",
+              })}
+            >
               Main
             </NavigationMenuLink>
           </Link>
@@ -26,7 +34,12 @@ export function TopNav() {
 
         <NavigationMenuItem>
           <Link href="/mail" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink
+              className={cn(navigationMenuTriggerStyle(), {
+                "opacity-50": pathname !== "/mail",
+                "opacity-100": pathname === "/mail",
+              })}
+            >
               Mail
             </NavigationMenuLink>
           </Link>
@@ -34,7 +47,12 @@ export function TopNav() {
 
         <NavigationMenuItem>
           <Link href="/tasks" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink
+              className={cn(navigationMenuTriggerStyle(), {
+                "opacity-50": pathname !== "/tasks",
+                "opacity-100": pathname === "/tasks",
+              })}
+            >
               Tasks
             </NavigationMenuLink>
           </Link>
