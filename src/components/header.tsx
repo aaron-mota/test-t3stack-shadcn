@@ -15,8 +15,13 @@ export function Header({}: Props) {
       className="p-1 px-2"
     >
       <div className="flex justify-between">
-        <Logo />
-        <TopNav />
+        <div className="flex items-center gap-8">
+          <div>
+            {/* <div className="w-[240px]"> */}
+            <Logo />
+          </div>
+          <TopNav />
+        </div>
         <div className="flex gap-2">
           <CompanyLocationUserNav />
           <div className="flex gap-1">
