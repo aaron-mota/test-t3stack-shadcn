@@ -3,14 +3,13 @@
 import { useStorePatientTabs } from "@/hooks";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { X } from "lucide-react";
+import { useParams, usePathname, useRouter } from "next/navigation";
 
 export function PatientTabs() {
-  const { patients, removePatient } = useStorePatientTabs();
-
-  const handleClose = (patientId: string) => {
-    // Prevent the tab change when clicking the close button
-    removePatient(patientId);
-  };
+  const { patientId: activePatientId } = useParams<{ patientId?: string }>();
+  const pathname = usePathname();
+  const router = useRouter();
+  const { patients, removePatient, setHref } = useStorePatientTabs();
 
   return (
     <Tabs defaultValue={patients[0]?.id} className="tabs">
@@ -21,12 +20,25 @@ export function PatientTabs() {
             value={patient.id}
             id={`tab-${patient.id}`}
           >
-            {patient.name}
+            <span
+              onClick={() => {
+                if (activePatientId) {
+                  if (activePatientId === patient.id) {
+                    return;
+                  } else {
+                    setHref(activePatientId, pathname);
+                  }
+                }
+                router.push(patient.href);
+              }}
+            >
+              {patient.name}
+            </span>
             <X
               className="ml-2 h-4 w-4 opacity-60 hover:opacity-100"
               onClick={(e) => {
                 e.stopPropagation(); // Prevent tab switching when the button is clicked
-                handleClose(patient.id);
+                removePatient(patient.id);
               }}
             />
           </TabsTrigger>

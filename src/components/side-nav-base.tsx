@@ -9,6 +9,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import type { NavLink } from "@/lib/siteConfig";
+import { useParams, useRouter } from "next/navigation";
 
 interface Props {
   isCollapsed: boolean;
@@ -16,6 +17,12 @@ interface Props {
 }
 
 export function SideNavBase({ links, isCollapsed }: Props) {
+  const { patientId } = useParams<{ patientId?: string }>();
+
+  if (!patientId) {
+    return null;
+  }
+
   return (
     <>
       <div
@@ -55,7 +62,7 @@ export function SideNavBase({ links, isCollapsed }: Props) {
             ) : (
               <Link
                 key={index}
-                href="#"
+                href={link.href ? `/patients/${patientId}/${link.href}` : "#"}
                 className={cn(
                   buttonVariants({ variant: link.variant, size: "sm" }),
                   link.variant === "default" && "dark:bg-muted dark:text-white",

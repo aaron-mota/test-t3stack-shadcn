@@ -1,11 +1,10 @@
 import {
   type LucideIcon,
-  Archive,
-  ArchiveX,
-  File,
-  Inbox,
-  Send,
-  Trash2,
+  User,
+  SquareUserRound,
+  Newspaper,
+  Glasses,
+  PencilLine,
 } from "lucide-react";
 
 export type NavLink = {
@@ -13,45 +12,34 @@ export type NavLink = {
   label?: string;
   icon?: LucideIcon;
   variant?: "default" | "ghost";
+  href?: string;
 };
 
 const navLinks: Record<string, NavLink[]> = {
   sideNavMain: [
     {
-      title: "Inbox",
-      label: "128",
-      icon: Inbox,
+      title: "Patient Dashboard",
+      icon: User,
       variant: "default",
+      href: "/dashboard",
     },
     {
-      title: "Drafts",
-      label: "9",
-      icon: File,
+      title: "Demographics",
+      icon: SquareUserRound,
       variant: "ghost",
+      href: "/demographics",
     },
     {
-      title: "Sent",
-      label: "",
-      icon: Send,
+      title: "Exams",
+      icon: Newspaper,
       variant: "ghost",
+      href: "/exams",
     },
     {
-      title: "Junk",
-      label: "23",
-      icon: ArchiveX,
+      title: "Prescriptions",
+      icon: PencilLine,
       variant: "ghost",
-    },
-    {
-      title: "Trash",
-      label: "",
-      icon: Trash2,
-      variant: "ghost",
-    },
-    {
-      title: "Archive",
-      label: "",
-      icon: Archive,
-      variant: "ghost",
+      href: "/prescriptions",
     },
   ],
 };
