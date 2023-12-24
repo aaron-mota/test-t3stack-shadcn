@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import {
@@ -9,18 +8,14 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import type { NavLink } from "@/lib/siteConfig";
 
 interface Props {
   isCollapsed: boolean;
-  links: {
-    title: string;
-    label?: string;
-    icon: LucideIcon;
-    variant: "default" | "ghost";
-  }[];
+  links: NavLink[];
 }
 
-export function SideNav({ links, isCollapsed }: Props) {
+export function SideNavBase({ links, isCollapsed }: Props) {
   return (
     <>
       <div
@@ -41,7 +36,7 @@ export function SideNav({ links, isCollapsed }: Props) {
                         "dark:bg-muted dark:text-muted-foreground",
                     )}
                   >
-                    <link.icon className="h-4 w-4" />
+                    {link.icon && <link.icon className="h-4 w-4" />}
                     <span className="sr-only">{link.title}</span>
                   </Link>
                 </TooltipTrigger>
@@ -67,7 +62,7 @@ export function SideNav({ links, isCollapsed }: Props) {
                   "justify-start",
                 )}
               >
-                <link.icon className="mr-2 h-4 w-4" />
+                {link.icon && <link.icon className="mr-2 h-4 w-4" />}
                 {link.title}
                 {link.label && (
                   <span
