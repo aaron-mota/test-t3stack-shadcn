@@ -3,7 +3,6 @@ import {
   User,
   SquareUserRound,
   Newspaper,
-  Glasses,
   PencilLine,
 } from "lucide-react";
 
