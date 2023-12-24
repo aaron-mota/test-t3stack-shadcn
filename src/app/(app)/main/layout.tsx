@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex">
       <div
-        className={`h-[calc(100vh - 40px)] fixed left-0 top-[40px] w-[200px]`}
+        className={`h-[calc(100vh - 40px)] fixed bottom-0 left-0 top-[40px] w-[200px]`}
       >
         <SideNavMain />
       </div>
